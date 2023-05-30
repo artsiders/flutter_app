@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/event_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({

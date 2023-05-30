@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/pages/add_event_page.dart';
 import 'package:flutter_application/pages/event_page.dart';
 import 'package:flutter_application/pages/home_page.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,9 +23,16 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  final iconList = <IconData>[
+    Icons.home,
+    Icons.calendar_month,
+    Icons.add,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
             title: const [
@@ -45,6 +53,15 @@ class _MyAppState extends State<MyApp> {
                   icon: Icon(Icons.calendar_month), label: 'events'),
               BottomNavigationBarItem(icon: Icon(Icons.add), label: 'ajouter'),
             ]),
+        // bottomNavigationBar: CurvedNavigationBar(
+        //   backgroundColor: Color.fromARGB(69, 70, 70, 70),
+        //   items: const <Widget>[
+        //     Icon(Icons.home, size: 30),
+        //     Icon(Icons.calendar_month, size: 30),
+        //     Icon(Icons.add, size: 30),
+        //   ],
+        //   onTap: (index) => setCurrentInde(index),
+        // ),
       ),
     );
   }
