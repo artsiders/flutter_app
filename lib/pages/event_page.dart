@@ -1,50 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/home_page.dart';
 
-class EventPage extends StatelessWidget {
+class EventPage extends StatefulWidget {
   const EventPage({super.key});
 
   @override
+  State<EventPage> createState() => _EventPageState();
+}
+
+class _EventPageState extends State<EventPage> {
+  final List<Map<String, String>> events = [
+    {
+      "avatar": "salim",
+      "name": "salim sama",
+      "email": "salim.artsider@gmail.com",
+    },
+    {
+      "avatar": "dimy",
+      "name": "dimy senpai",
+      "email": "dimy.senpai@gmail.com",
+    },
+    {
+      "avatar": "joelle",
+      "name": "joelle kun",
+      "email": "joelle.kun@gmail.com",
+    },
+    {
+      "avatar": "samuelle",
+      "name": "samuelle tayzone",
+      "email": "samuelle.tayzone@gmail.com",
+    },
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Evenements")),
-      body: ListView(
-        children: [
-          Card(
-            child: ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const HomePage()));
-              },
-              leading: Image.asset("assets/images/thumbnail.jpg",
-                  width: 50, height: 50),
-              title: const Text('art side app 1'),
+    return ListView.builder(
+      itemCount: events.length,
+      itemBuilder: (context, index) {
+        final event = events[index];
+        final avatar = event["avatar"];
+        final name = event["name"];
+        final email = event["email"];
+
+        return Card(
+          child: ListTile(
+            leading: Image.asset(
+              'assets/images/$avatar.webp',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
             ),
+            title: Text('$name'),
+            subtitle: Text('$email'),
+            trailing: const Icon(Icons.more_vert),
           ),
-          Card(
-            child: ListTile(
-              leading: Image.asset(
-                "assets/images/thumbnail.jpg",
-                width: 50,
-                height: 50,
-              ),
-              title: const Text('art side app 2'),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: Image.asset(
-                "assets/images/thumbnail.jpg",
-                width: 50,
-                height: 50,
-              ),
-              title: const Text('art side app 3'),
-            ),
-          )
-        ],
-      ),
+        );
+      },
     );
   }
 }
