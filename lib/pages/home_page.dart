@@ -39,22 +39,22 @@ class HomePage extends StatelessWidget {
         //       "afficher le planing",
         //       style: TextStyle(fontSize: 20),
         //     )),
-        ElevatedButton.icon(
-          style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-              backgroundColor: MaterialStatePropertyAll(Colors.green)),
-          onPressed: () {
-            Navigator.push(
-                context,
-                PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => const EventPage()));
-          },
-          label: const Text(
-            "afficher le planing",
-            style: TextStyle(fontSize: 20),
-          ),
-          icon: const Icon(Icons.calendar_month_sharp),
-        )
+        // ElevatedButton.icon(
+        //   style: const ButtonStyle(
+        //       padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+        //       backgroundColor: MaterialStatePropertyAll(Colors.green)),
+        //   onPressed: () {
+        //     Navigator.push(
+        //         context,
+        //         PageRouteBuilder(
+        //             pageBuilder: (_, __, ___) => const EventPage()));
+        //   },
+        //   label: const Text(
+        //     "afficher le planing",
+        //     style: TextStyle(fontSize: 20),
+        //   ),
+        //   icon: const Icon(Icons.calendar_month_sharp),
+        // )
       ],
     ));
   }

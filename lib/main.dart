@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/pages/add_event_page.dart';
 import 'package:flutter_application/pages/event_page.dart';
 import 'package:flutter_application/pages/home_page.dart';
 
@@ -25,9 +26,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text("art sider")),
-        body: const [HomePage(), EventPage()][_currentIndex],
+        appBar: AppBar(
+            title: const [
+          Text("home"),
+          Text("events"),
+          Text("add event")
+        ][_currentIndex]),
+        body: const [HomePage(), EventPage(), AddEventPage()][_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
             onTap: (index) => setCurrentInde(index),
             selectedItemColor: Colors.green,
@@ -36,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.calendar_month), label: 'events'),
-              BottomNavigationBarItem(icon: Icon(Icons.info), label: 'about'),
+              BottomNavigationBarItem(icon: Icon(Icons.add), label: 'ajouter'),
             ]),
       ),
     );
