@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/pages/add_event_page.dart';
 import 'package:flutter_application/pages/event_page.dart';
 import 'package:flutter_application/pages/home_page.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
