@@ -76,7 +76,7 @@ flutter:
   fonts:
     - family: JetBrains
       fonts:
-        - asset: assets/fonts/JetBrains_Mono/JetBrainsMono-Bold.ttf
+        - asset: assets/fonts/JetBrains_Mono/JetBrainsMono-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

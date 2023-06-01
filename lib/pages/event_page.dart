@@ -21,13 +21,33 @@ class _EventPageState extends State<EventPage> {
     },
     {
       "avatar": "joelle",
-      "name": "joelle kun",
-      "email": "joelle.kun@gmail.com",
+      "name": "joelle queen",
+      "email": "joelle.queen@gmail.com",
     },
     {
       "avatar": "samuelle",
       "name": "samuelle tayzone",
       "email": "samuelle.tayzone@gmail.com",
+    },
+    {
+      "avatar": "romeo",
+      "name": "Roméo @AfroBoy",
+      "email": "romeo@AfroBoy.com",
+    },
+    {
+      "avatar": "default-profile",
+      "name": "Marcelin nono",
+      "email": "marcelinnono20@gmail.com",
+    },
+    {
+      "avatar": "angy",
+      "name": "angy mague",
+      "email": "angymague@gmail.com",
+    },
+    {
+      "avatar": "daniel",
+      "name": "daniel kom",
+      "email": "danielkom@gmail.com",
     },
   ];
 
@@ -43,11 +63,14 @@ class _EventPageState extends State<EventPage> {
 
         return Card(
           child: ListTile(
-            leading: Image.asset(
-              'assets/images/$avatar.webp',
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.asset(
+                'assets/images/$avatar.webp',
+                width: 50,
+                height: 50,
+                fit: BoxFit.cover,
+              ),
             ),
             title: Text('$name'),
             subtitle: Text('$email'),

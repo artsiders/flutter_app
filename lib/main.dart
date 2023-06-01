@@ -34,17 +34,19 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            title: const [
-          Text("home"),
-          Text("events"),
-          Text("add event")
-        ][_currentIndex]),
+          title: const [
+            Text("home"),
+            Text("events"),
+            Text("add event")
+          ][_currentIndex],
+          backgroundColor: Colors.purple,
+        ),
         body: const [HomePage(), EventPage(), AddEventPage()][_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
             onTap: (index) => setCurrentInde(index),
-            selectedItemColor: Colors.green,
+            selectedItemColor: Colors.purple,
             unselectedItemColor: Colors.grey,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
