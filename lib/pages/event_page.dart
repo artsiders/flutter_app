@@ -53,31 +53,36 @@ class _EventPageState extends State<EventPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: events.length,
-      itemBuilder: (context, index) {
-        final event = events[index];
-        final avatar = event["avatar"];
-        final name = event["name"];
-        final email = event["email"];
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("test"),
+      ),
+      body: ListView.builder(
+        itemCount: events.length,
+        itemBuilder: (context, index) {
+          final event = events[index];
+          final avatar = event["avatar"];
+          final name = event["name"];
+          final email = event["email"];
 
-        return Card(
-          child: ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.asset(
-                'assets/images/$avatar.webp',
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
+          return Card(
+            child: ListTile(
+              leading: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Image.asset(
+                  'assets/images/$avatar.webp',
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.cover,
+                ),
               ),
+              title: Text('$name'),
+              subtitle: Text('$email'),
+              trailing: const Icon(Icons.more_vert),
             ),
-            title: Text('$name'),
-            subtitle: Text('$email'),
-            trailing: const Icon(Icons.more_vert),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

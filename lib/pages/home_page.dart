@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/pages/event_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -44,22 +45,22 @@ class HomePage extends StatelessWidget {
           //       "afficher le planing",
           //       style: TextStyle(fontSize: 20),
           //     )),
-          // ElevatedButton.icon(
-          //   style: const ButtonStyle(
-          //       padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-          //       backgroundColor: MaterialStatePropertyAll(Colors.green)),
-          //   onPressed: () {
-          //     Navigator.push(
-          //         context,
-          //         PageRouteBuilder(
-          //             pageBuilder: (_, __, ___) => const EventPage()));
-          //   },
-          //   label: const Text(
-          //     "afficher le planing",
-          //     style: TextStyle(fontSize: 20),
-          //   ),
-          //   icon: const Icon(Icons.calendar_month_sharp),
-          // )
+          ElevatedButton.icon(
+            style: const ButtonStyle(
+                padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                backgroundColor: MaterialStatePropertyAll(Colors.purple)),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                      pageBuilder: (_, __, ___) => const EventPage()));
+            },
+            label: const Text(
+              "liste des Evenements",
+              style: TextStyle(fontSize: 20),
+            ),
+            icon: const Icon(Icons.calendar_month_sharp),
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/pages/about_page.dart';
 import 'package:flutter_application/pages/add_event_page.dart';
 import 'package:flutter_application/pages/event_page.dart';
 import 'package:flutter_application/pages/home_page.dart';
@@ -22,11 +23,11 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  final iconList = <IconData>[
-    Icons.home,
-    Icons.calendar_month,
-    Icons.add,
-  ];
+  // final iconList = <IconData>[
+  //   Icons.home,
+  //   Icons.calendar_month,
+  //   Icons.add,
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +36,31 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const [
-            Text("home"),
-            Text("events"),
-            Text("add event")
+            Text("Accueil"),
+            Text("Evenements"),
+            Text("A propos"),
+            Text("Ajouter"),
           ][_currentIndex],
           backgroundColor: Colors.purple,
         ),
-        body: const [HomePage(), EventPage(), AddEventPage()][_currentIndex],
+        body: const [
+          HomePage(),
+          EventPage(),
+          AboutPage(),
+          AddEventPage(),
+        ][_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
             onTap: (index) => setCurrentInde(index),
             selectedItemColor: Colors.purple,
             unselectedItemColor: Colors.grey,
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.calendar_month), label: 'events'),
-              BottomNavigationBarItem(icon: Icon(Icons.add), label: 'ajouter'),
+                  icon: Icon(Icons.calendar_month), label: 'Evenements'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.info), label: 'A propos'),
+              BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Ajouter'),
             ]),
         // bottomNavigationBar: CurvedNavigationBar(
         //   backgroundColor: Color.fromARGB(69, 70, 70, 70),
@@ -63,6 +71,21 @@ class _MyAppState extends State<MyApp> {
         //   ],
         //   onTap: (index) => setCurrentInde(index),
         // ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.purple,
+          onPressed: () {
+            // setState(() {
+            //   _currentIndex = 3;
+            // });
+
+            Navigator.push(
+                context,
+                PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => const AddEventPage()));
+          },
+          tooltip: 'Ajouter un Evenement',
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
