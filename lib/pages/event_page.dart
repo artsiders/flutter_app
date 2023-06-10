@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/pages/add_event_page.dart';
 
 class EventPage extends StatefulWidget {
   const EventPage({super.key});
@@ -53,36 +54,55 @@ class _EventPageState extends State<EventPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("test"),
-      ),
-      body: ListView.builder(
-        itemCount: events.length,
-        itemBuilder: (context, index) {
-          final event = events[index];
-          final avatar = event["avatar"];
-          final name = event["name"];
-          final email = event["email"];
+    return Column(
+      children: [
+        const Padding(padding: EdgeInsets.only(top: 10)),
+        ElevatedButton.icon(
+          style: const ButtonStyle(
+              padding: MaterialStatePropertyAll(EdgeInsets.all(15)),
+              backgroundColor: MaterialStatePropertyAll(Colors.purple)),
+          onPressed: () {
+            Navigator.push(
+                context,
+                PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => const AddEventPage()));
+          },
+          label: const Text(
+            "Ajouter",
+            style: TextStyle(fontSize: 20),
+          ),
+          icon: const Icon(Icons.add),
+        ),
+        const Padding(padding: EdgeInsets.only(top: 10)),
+        Expanded(
+          child: ListView.builder(
+            itemCount: events.length,
+            itemBuilder: (context, index) {
+              final event = events[index];
+              final avatar = event["avatar"];
+              final name = event["name"];
+              final email = event["email"];
 
-          return Card(
-            child: ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.asset(
-                  'assets/images/$avatar.webp',
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
+              return Card(
+                child: ListTile(
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.asset(
+                      'assets/images/$avatar.webp',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  title: Text('$name'),
+                  subtitle: Text('$email'),
+                  trailing: const Icon(Icons.more_vert),
                 ),
-              ),
-              title: Text('$name'),
-              subtitle: Text('$email'),
-              trailing: const Icon(Icons.more_vert),
-            ),
-          );
-        },
-      ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

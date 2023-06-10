@@ -22,45 +22,21 @@ class HomePage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          const Padding(padding: EdgeInsets.only(top: 20)),
           const Text(
-            "hello world",
+            "Alt plus TODO",
             style: TextStyle(
                 fontFamily: 'JetBrains',
-                fontSize: 42,
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
                 color: Colors.purple),
           ),
           const Text(
-            "don't worry you ! \n i'll take on the world",
+            "Restez au Top (100% productif) avec cette application",
             style: TextStyle(fontSize: 20, color: Colors.blueGrey),
             textAlign: TextAlign.center,
           ),
-          const Padding(padding: EdgeInsets.only(top: 30)),
-          // ElevatedButton(
-          //     style: const ButtonStyle(
-          //         padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-          //         backgroundColor: MaterialStatePropertyAll(Colors.green)),
-          //     onPressed: () => print("click"),
-          //     child: const Text(
-          //       "afficher le planing",
-          //       style: TextStyle(fontSize: 20),
-          //     )),
-          ElevatedButton.icon(
-            style: const ButtonStyle(
-                padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-                backgroundColor: MaterialStatePropertyAll(Colors.purple)),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => const EventPage()));
-            },
-            label: const Text(
-              "liste des Evenements",
-              style: TextStyle(fontSize: 20),
-            ),
-            icon: const Icon(Icons.calendar_month_sharp),
-          ),
+          const Padding(padding: EdgeInsets.only(top: 20)),
         ],
       ),
     );
